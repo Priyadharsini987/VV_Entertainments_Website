@@ -1,0 +1,207 @@
+.admin-sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(238, 59, 142, 0.2);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  flex-shrink: 0;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1.5rem 1.2rem;
+  border-bottom: 1px solid rgba(238, 59, 142, 0.2);
+  font-size: 1.8rem;
+}
+
+.sidebar-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #cf3a82;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.sidebar-sub {
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  color: #444;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  color: #555;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: all 0.25s;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.sidebar-link:hover {
+  background: rgba(207, 58, 130,0.05);
+  color: #cf3a82;
+}
+
+.sidebar-link.active {
+  background: rgba(207, 58, 130,0.12);
+  color: #cf3a82;
+  border: 1px solid rgba(207, 58, 130,0.2);
+}
+
+.sidebar-icon {
+  font-size: 0.95rem;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sidebar-footer {
+  padding: 0.75rem;
+  border-top: 1px solid rgba(238, 59, 142, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.view-site { color: #444; }
+.logout-btn { color: #555; }
+.logout-btn:hover { background: rgba(231,76,60,0.08); color: #e74c3c; }
+
+.mobile-admin-header { display: none; }
+.admin-overlay { display: none; }
+
+@media (max-width: 900px) {
+  .mobile-admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: rgba(255, 240, 245, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 998;
+    padding: 0 1.5rem;
+    border-bottom: 1px solid rgba(238, 59, 142, 0.2);
+    box-shadow: 0 4px 20px rgba(92, 25, 56, 0.05);
+  }
+
+  .mobile-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #cf3a82;
+    letter-spacing: 1px;
+  }
+
+  .mobile-admin-header button {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: #cf3a82;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .admin-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(92, 25, 56, 0.4);
+    z-index: 999;
+    backdrop-filter: blur(3px);
+    animation: fadeIn 0.3s ease;
+  }
+
+  .admin-sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 260px;
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #fff0f5;
+    box-shadow: 5px 0 25px rgba(92, 25, 56, 0.1);
+  }
+
+  .admin-sidebar.open {
+    left: 0;
+  }
+
+  /* Reset layout for slide-in drawer */
+  .sidebar-logo {
+    display: flex;
+    padding: 1.5rem;
+  }
+  
+  .sidebar-footer {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-left: none;
+    border-top: 1px solid rgba(238, 59, 142, 0.2);
+  }
+
+  .sidebar-footer .sidebar-link {
+    justify-content: flex-start;
+  }
+
+  .sidebar-footer .sidebar-link span:not(.sidebar-icon) {
+    display: inline;
+  }
+
+  .sidebar-nav {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+    flex: 1;
+    width: 100%;
+  }
+
+  .sidebar-link {
+    flex-direction: row;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    text-align: left;
+    margin-bottom: 0.25rem;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
